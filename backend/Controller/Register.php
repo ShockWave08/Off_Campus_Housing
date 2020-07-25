@@ -36,21 +36,21 @@ class Register extends Controller
     **/
     public function register(array $data)
     {
-        $fname = test_input($data['fname']);
-        $lname = test_input($data['lname']);
-        $gender = test_input($data['gender']);
-        $email = test_input($data['email']);
-        $phone = test_input($data['phone']);
-        $password = test_input($data['passwd']);
-        $password_verify = test_input($data['passwd_verify']);
+        $fname = $this->test_input($data['fname']);
+        $lname = $this->test_input($data['lname']);
+        $gender = $this->test_input($data['gender']);
+        $email = $this->test_input($data['email']);
+        $phone = $this->test_input($data['tel']);
+        $password = $this->test_input($data['passwd']);
+        $password_verify = $this->test_input($data['passwd_verify']);
 
         $EmailStatus = $this->register->fetchUser($email)['status'];
 
         $Error = array(
             'name' => '',
             'email' => '',
-            'phone' => '',
-            'password' => '',
+            'tel' => '',
+            'passwd' => '',
             'status' => false
         );
 
@@ -74,21 +74,22 @@ class Register extends Controller
 
         if (preg_match('/[^0-9_]/', $phone))
         {
-            $Error['phone'] = 'Please, use a valid phone number.';
+            $Error['tel'] = 'Please, use a valid phone number.';
             return $Error;
         }
 
         if (strlen($password) < 7)
         {
-            $Error['password'] = 'Please, use a stronger password.';
+            $Error['passwd'] = 'Please, use a stronger password.';
             return $Error;
         }
 
         $Payload = array(
-            'name' => $name,
+            'fname' => $fname,
+            'lname' => $lname,
             'email' => $email,
-            'phone' => $phone,
-            'password' => password_hash($password, PASSWORD_BCRYPT)
+            'tel' => $phone,
+            'passwd' => password_hash($password, PASSWORD_BCRYPT)
         );
 
         $Response = $this->register->create_Landlord($Payload);

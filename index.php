@@ -1,5 +1,5 @@
 <?php
-    //require_once('C:\xampp\htdocs\off_campus_project\backend\Controller\Register.php');
+    require_once('C:\xampp\htdocs\off_campus_project\backend\Controller\Register.php');
     require_once('C:\xampp\htdocs\off_campus_project\backend\Controller\Login.php');
 ?>
 
@@ -7,9 +7,15 @@
   $Login = new Login();
   $Response = [];
   //$active = $Login->active;
-  if (isset($_POST['login_button']) && count($_POST['']) > 0) $Response = $Login->login($_POST['');
+  if (isset($_POST['login_button']) && count($_POST) > 0) $Response = $Login->login($_POST);
 ?>
 
+<?php
+  $Register = new Register();
+  $Response = [];
+  // $active = $Register->active;
+  if (isset($_POST['register_button']) && count($_POST) > 0) $Response = $Register->register($_POST);
+?>
 
 
 
@@ -509,7 +515,14 @@
             <!-- Login Form -->
             <form id="login" class="input-group" role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 
-                <?php //if (isset($Response['status']) && !$Response['status']) : ?>
+                <?php if (isset($Response['status']) && !$Response['status']) : ?>
+                    <div class="alert alert-danger" role="alert">
+                      <span><B>Oops!</B> Invalid Credentials Used.</span>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true" class="text-danger">&times;</span>
+                      </button>
+                    </div>
+                <?php endif; ?>
 
                 <div class="form-group md-form mb-2">
                     <label data-error="wrong" data-success="right" for="email">Email address</label>
@@ -518,7 +531,7 @@
 
                 <div class=" form-group md-form mb-2">
                     <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
-                    <input type="password" class="form-control validate" id="defaultForm-pass" name="login_psswd" placeholder="Your Password" required>
+                    <input type="password" class="form-control validate" id="defaultForm-pass" name="login_passwd" placeholder="Your Password" required>
                 </div>
 
                 <div class="custom-control custom-switch">
@@ -531,23 +544,41 @@
 
             <!-- Registration Form -->
             <form id="register" class="input-group" role="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
+                <?php if (isset($Response['status']) && !$Response['status']) : ?>
+                    <br>
+                    <div class="alert alert-danger" role="alert">
+                      <span><B>Oops!</B> Some errors occurred in your form.</span>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true" class="text-danger">&times;</span>
+                      </button>
+                    </div>
+                <?php endif; ?>
+
                 <div class=" form-group md-form mb-1">
                     <label data-error="wrong" data-success="right" for="fname">First Name</label>
                     <input type="text" class="form-control validate" id="fname" aria-describedby="nameHelp" placeholder="Enter First Name" name="fname" required>
+                    <?php if (isset($Response['name']) && !empty($Response['fname'])): ?>
+                        <small class="text-danger"><?php echo $Response['fname']; ?></small>
+                    <?php endif; ?>
                 </div>
 
                 <div class=" form-group md-form mb-1">
                     <label data-error="wrong" data-success="right" for="lname">Last Name</label>
                     <input type="text" class="form-control validate" id="email1" aria-describedby="nameHelp" placeholder="Enter Last Name" name="lname" required>
+                    <?php if (isset($Response['name']) && !empty($Response['lname'])): ?>
+                        <small class="text-danger"><?php echo $Response['lname']; ?></small>
+                    <?php endif; ?>
                 </div>
 
                 <div class="mt-3">
                     <label>Select Gender</label>
                         <select name="gender" class="custom-select mb-3">
                             <option selected>Gender</option>
-                            <option value="volvo">Male</option>
-                            <option value="fiat">Female</option>
-                            <option value="audi">Other</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                            <option value="Human">Prefer Not to Say</option>
                         </select>
                 </div>
 
@@ -555,16 +586,25 @@
                     <label data-error="wrong" data-success="right" for="email">Email address</label>
                     <input type="email" class="form-control validate" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
                     <small id="emailHelp" class="form-text text-muted">Your information is safe with us.</small>
+                    <?php if (isset($Response['email']) && !empty($Response['email'])): ?>
+                        <small class="text-danger"><?php echo $Response['email']; ?></small>
+                    <?php endif; ?>
                 </div>
 
                 <div class="form-group md-form mb-1">
                     <label data-error="wrong" data-success="right" for="tel">Phone</label>
                     <input type="tel" class="form-control validate" id="tel" aria-describedby="emailHelp" placeholder="+1 (555) 666-7777" name="tel" required>
+                    <?php if (isset($Response['phone']) && !empty($Response['tel'])): ?>
+                        <small class="text-danger"><?php echo $Response['tel']; ?></small>
+                    <?php endif; ?>
                 </div>
 
                 <div class=" form-group md-form mb-1">
                     <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
                     <input type="password" class="form-control validate" id="defaultForm-pass" placeholder="Your Password" name="passwd" required>
+                    <?php if (isset($Response['password']) && !empty($Response['passwd'])): ?>
+                        <small class="text-danger"><?php echo $Response['passwd']; ?></small>
+                    <?php endif; ?>
                 </div>
 
                 <div class=" form-group md-form mb-1">
@@ -574,6 +614,7 @@
 
                 <button type="submit" class="submit_button" name="register_button"> Submit</button>
             </form>
+
         </div>
 
         <!-- Login and Register Form  Animation-->
@@ -885,7 +926,7 @@
         </footer>
 
         <div id="copy">
-            <p>Copyright &#169; 2020 CHILL Off Campus Housing Powered by Gator Systems</p>
+            <p>Copyright &#169; <?php echo date('Y'); ?> CHILL Off Campus Housing Powered by Gator Systems</p>
         </div>
 
     </body>

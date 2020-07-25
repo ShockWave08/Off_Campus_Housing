@@ -21,8 +21,8 @@
       $this->bind('lname', $landlord['lname']);
       $this->bind('gender', $landlord['gender']);
       $this->bind('email', $landlord['email']);
-      $this->bind('phone_no', $landlord['phone']);
-      $this->bind('password', $landlord['password']);
+      $this->bind('phone_no', $landlord['tel']);
+      $this->bind('password', $landlord['passwd']);
 
 
 

@@ -34,8 +34,8 @@ class Login extends Controller
     **/
     public function login(array $data)
     {
-        $email = test_input($data['login_email']);
-        $password = test_input($data['login_passwd']);
+        $email = $this->test_input($data['login_email']);
+        $password = $this->test_input($data['login_passwd']);
 
         $EmailRecords = $this->landlords->fetchEmail($email);
 
