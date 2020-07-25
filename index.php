@@ -7,7 +7,7 @@
   $Login = new Login();
   $Response = [];
   //$active = $Login->active;
-  if (isset($_POST) && count($_POST) > 0) $Response = $Login->login($_POST);
+  if (isset($_POST['login_button']) && count($_POST['']) > 0) $Response = $Login->login($_POST['');
 ?>
 
 
@@ -628,7 +628,7 @@
            }
 
         </script>
-<!--  -->
+
         <main id="apartment_display">
             <div class="container-fluid">
                 <!-- row 1 -->
