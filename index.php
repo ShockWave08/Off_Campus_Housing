@@ -7,14 +7,16 @@
   $Login = new Login();
   $Response = [];
   //$active = $Login->active;
-  if (isset($_POST['login_button']) && count($_POST) > 0) $Response = $Login->login($_POST);
+  if (isset($_POST['login_button']) && count($_POST) > 0)
+    $Response = $Login->login($_POST);
 ?>
 
 <?php
-  $Register = new Register();
-  $Response = [];
-  // $active = $Register->active;
-  if (isset($_POST['register_button']) && count($_POST) > 0) $Response = $Register->register($_POST);
+    $Register = new Register();
+    $Response = [];
+    // $active = $Register->active;
+    if (isset($_POST['register_button']) && count($_POST) > 0)
+        $Response = $Register->register($_POST);
 ?>
 
 
@@ -573,8 +575,8 @@
 
                 <div class="mt-3">
                     <label>Select Gender</label>
-                        <select name="gender" class="custom-select mb-3">
-                            <option selected>Gender</option>
+                        <select name="gender" class="custom-select mb-3" required>
+                            <option selected disabled>Choose Gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Other">Other</option>
@@ -647,7 +649,7 @@
             }
         </script>
 
-        <!-- Menu Filter Animation -->
+        <!-- Login Animation -->
         <script type="text/javascript" charset="utf-8">
 
             var form_cont = document.getElementById('form-container');

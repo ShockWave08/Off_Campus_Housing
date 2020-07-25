@@ -72,9 +72,15 @@ class Register extends Controller
             return $Error;
         }
 
-        if (preg_match('/[^0-9_]/', $phone))
+        if (!empty($gender))
         {
-            $Error['tel'] = 'Please, use a valid phone number.';
+            $Error['gender'] = 'Sorry. Please choose your gender.';
+            return $Error;
+        }
+
+        if (preg_match('/[^0-9_]/', $phone) && strlen($phone) < 10)
+        {
+            $Error['tel'] = 'Please, use a valid phone number with area code.';
             return $Error;
         }
 
@@ -87,6 +93,7 @@ class Register extends Controller
         $Payload = array(
             'fname' => $fname,
             'lname' => $lname,
+            'gender' => $gender,
             'email' => $email,
             'tel' => $phone,
             'passwd' => password_hash($password, PASSWORD_BCRYPT)
@@ -95,7 +102,9 @@ class Register extends Controller
         $Response = $this->register->create_Landlord($Payload);
 
         $Data = $this->register->fetchUser($email)['data'];
-        unset($Data['password']); //Makes a whole lot of sense to get rid of any critical information...
+        //Makes a whole lot of sense to get rid of any critical information...
+        unset($Data['passwd']);
+        unset($Data['passwd_verify']);
 
         if (!$Response['status']) {
         $Response['status'] = 'Sorry, An unexpected error occurred and your request could not be completed.';
