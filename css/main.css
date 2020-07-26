@@ -571,6 +571,12 @@ nav
     padding: 25px 5px;
 }
 
+#footer .footer_column
+{
+
+
+}
+
 #footer p
 {
     font-size: 23px;
@@ -618,10 +624,11 @@ nav
     outline: 0;
     outline-color: 0;
     background-color: transparent;
+    color: #fff;
 }
 
 
-::placeholder
+#footer ::placeholder
 {
     color: #ffaa00;
 }
@@ -645,11 +652,10 @@ nav
     border: 1px solid #febb11;
     border-radius: 30px;
     color: #fff;
-    margin: 0 0 10px 110px;
+    margin: 0 0 0 190px;
     width: auto;
     height: auto;
     padding: 5px 10px;
-
 }
 
 

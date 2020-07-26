@@ -900,10 +900,17 @@
             </div>
         </main>
 
+        <section class ="transportation">
+            <div class="container-fluid">
+
+            </div>
+        </section>
+
         <footer id="footer">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2 ">
                         <div class="footer_column foo1">
                             <p>Tools</p>
                             <ul>
@@ -918,7 +925,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-2 ">
                         <div class="footer_column foo1">
                             <p>Legal Docs</p>
                             <ul>
@@ -930,8 +937,8 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
-                        <div class="footer_column foo1">
+                    <div class="col-sm-2 border-3">
+                        <div class="footer_column foo1 ">
                             <p>About Us</p>
                             <ul>
                                 <li>Cavehill Website</li>
@@ -943,7 +950,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-5">
                         <div class="footer_column foo1">
                             <p>Contact Us</p>
                             <form role="form" method="post">
@@ -954,11 +961,13 @@
                                 <div class=" form-group text-area">
                                     <textarea class="form-control validate" rows="3" maxlength="500"  placeholder=" Write Message"></textarea>
                                 </div>
-
-                                <button type="submit" id="contact_but" name="contact_button"> Submit</button>
+                                <div class="contact_button">
+                                    <button type="submit" id="contact_but" name="contact_button"> Submit</button>
+                                </div>
                             </form>
                         </div>
                     </div>
+
 
                 </div>
             </div>
