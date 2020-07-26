@@ -5,18 +5,23 @@
 
 <?php
   $Login = new Login();
+  $Register = new Register();
   $Response = [];
-  //$active = $Login->active;
-  if (isset($_POST['login_button']) && count($_POST) > 0)
-    $Response = $Login->login($_POST);
-?>
 
-<?php
-    $Register = new Register();
-    $Response = [];
-    // $active = $Register->active;
-    if (isset($_POST['register_button']) && count($_POST) > 0)
+
+    if (isset($_POST['login_button']) && count($_POST) > 0)
+    {
+        $active = $Login->active;
+        $Response = $Login->login($_POST);
+        echo 'login';
+    }
+
+    else if (isset($_POST['register_button']) && count($_POST) > 0)
+    {
+        $active = $Register->active;
         $Response = $Register->register($_POST);
+    }
+
 ?>
 
 
@@ -324,7 +329,7 @@
                                     </div>
                                 </div> -->
 
-                                <input class="form-control" type="text" placeholder="Search Landlords and Places">
+                                <input class="form-control" id="search" type="text" placeholder="Search Landlords and Places">
 
                                 <div class="input-group-append">
                                     <button class="btn nav_btn btn-primary">
@@ -338,6 +343,30 @@
                 </div>
             </div>
         </nav>
+
+        <script>
+            function showHint(str) {
+                if (str.length == 0)
+                {
+                    document.getElementById("search").innerHTML = "";
+                    return;
+                }
+                else
+                {
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function()
+                    {
+                        if (this.readyState == 4 && this.status == 200)
+                        {
+                        document.getElementById("search").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "C:/xampp/htdocs/off_campus_project/gethint.php?q=" + str, true);
+                    xmlhttp.send();
+                }
+            }
+        </script>
+
 
         <!-- menu bar -->
         <aside id="menu">
@@ -517,7 +546,7 @@
             <!-- Login Form -->
             <form id="login" class="input-group" role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 
-                <?php if (isset($Response['status']) && !$Response['status']) : ?>
+                <?php if ( isset($_POST['login_button']) && isset($Response['status']) && !$Response['status']) : ?>
                     <div class="alert alert-danger" role="alert">
                       <span><B>Oops!</B> Invalid Credentials Used.</span>
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -547,7 +576,7 @@
             <!-- Registration Form -->
             <form id="register" class="input-group" role="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-                <?php if (isset($Response['status']) && !$Response['status']) : ?>
+                <?php if ( isset($_POST['register_button']) && isset($Response['status']) && !$Response['status']) : ?>
                     <br>
                     <div class="alert alert-danger" role="alert">
                       <span><B>Oops!</B> Some errors occurred in your form.</span>
@@ -560,7 +589,7 @@
                 <div class=" form-group md-form mb-1">
                     <label data-error="wrong" data-success="right" for="fname">First Name</label>
                     <input type="text" class="form-control validate" id="fname" aria-describedby="nameHelp" placeholder="Enter First Name" name="fname" required>
-                    <?php if (isset($Response['name']) && !empty($Response['fname'])): ?>
+                    <?php if ( isset($_POST['register_button']) && isset($Response['name']) && !empty($Response['fname'])): ?>
                         <small class="text-danger"><?php echo $Response['fname']; ?></small>
                     <?php endif; ?>
                 </div>
@@ -568,7 +597,7 @@
                 <div class=" form-group md-form mb-1">
                     <label data-error="wrong" data-success="right" for="lname">Last Name</label>
                     <input type="text" class="form-control validate" id="email1" aria-describedby="nameHelp" placeholder="Enter Last Name" name="lname" required>
-                    <?php if (isset($Response['name']) && !empty($Response['lname'])): ?>
+                    <?php if (isset($_POST['register_button']) && isset($Response['name']) && !empty($Response['lname'])): ?>
                         <small class="text-danger"><?php echo $Response['lname']; ?></small>
                     <?php endif; ?>
                 </div>
@@ -588,7 +617,7 @@
                     <label data-error="wrong" data-success="right" for="email">Email address</label>
                     <input type="email" class="form-control validate" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
                     <small id="emailHelp" class="form-text text-muted">Your information is safe with us.</small>
-                    <?php if (isset($Response['email']) && !empty($Response['email'])): ?>
+                    <?php if ( isset($_POST['register_button']) && isset($Response['email']) && !empty($Response['email'])): ?>
                         <small class="text-danger"><?php echo $Response['email']; ?></small>
                     <?php endif; ?>
                 </div>
@@ -596,7 +625,7 @@
                 <div class="form-group md-form mb-1">
                     <label data-error="wrong" data-success="right" for="tel">Phone</label>
                     <input type="tel" class="form-control validate" id="tel" aria-describedby="emailHelp" placeholder="+1 (555) 666-7777" name="tel" required>
-                    <?php if (isset($Response['phone']) && !empty($Response['tel'])): ?>
+                    <?php if ( isset($_POST['register_button']) && isset($Response['phone']) && !empty($Response['tel'])): ?>
                         <small class="text-danger"><?php echo $Response['tel']; ?></small>
                     <?php endif; ?>
                 </div>
@@ -604,7 +633,7 @@
                 <div class=" form-group md-form mb-1">
                     <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
                     <input type="password" class="form-control validate" id="defaultForm-pass" placeholder="Your Password" name="passwd" required>
-                    <?php if (isset($Response['password']) && !empty($Response['passwd'])): ?>
+                    <?php if ( isset($_POST['register_button']) && isset($Response['password']) && !empty($Response['passwd'])): ?>
                         <small class="text-danger"><?php echo $Response['passwd']; ?></small>
                     <?php endif; ?>
                 </div>
@@ -875,52 +904,60 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-3">
-                        <p>Tools</p>
-                        <ul>
-                            <li>Contact Agents</li>
-                            <li>Mortgage Calculator</li>
-                            <li>PDF Version</li>
-                            <li>Email Listing</li>
-                            <li>Document Library</li>
-                            <li>Legal Disclaimer</li>
-                        </ul>
+                        <div class="footer_column foo1">
+                            <p>Tools</p>
+                            <ul>
+                                <li>Contact Agents</li>
+                                <li>Mortgage Calculator</li>
+                                <li>PDF Version</li>
+                                <li>Email Listing</li>
+                                <li>Barbados Overview</li>
+                                <li>Inventry List</li>
+                                <li>National Bus Schedule</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="col-sm-3">
-                        <p>Links</p>
-                        <ul>
-                            <li>Cavehill Website</li>
-                            <li>On Campus Accomodation</li>
-                            <li>Halls Accomodation</li>
-                            <li>International Office</li>
-                            <li>View All Listings</li>
-                        </ul>
+                        <div class="footer_column foo1">
+                            <p>Legal Docs</p>
+                            <ul>
+                                <li>Document Library</li>
+                                <li>Legal Disclaimer</li>
+                                <li>Roommate Agreement</li>
+
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="col-sm-3">
-                        <p>About Us</p>
-                        <ul>
-                            <li>Cavehill Website</li>
-                            <li>On Campus Accomodation</li>
-                            <li>Halls Accomodation</li>
-                            <li>International Office</li>
-                            <li>View All Listings</li>
-                        </ul>
+                        <div class="footer_column foo1">
+                            <p>About Us</p>
+                            <ul>
+                                <li>Cavehill Website</li>
+                                <li>On Campus Accomodation</li>
+                                <li>Halls Accomodation</li>
+                                <li>International Office</li>
+                                <li>View All Listings</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="col-sm-3">
-                        <p>Contact Us</p>
-                        <form role="form" method="post">
-                            <div class="form-group">
-                                <input type="email" class="form-control validate"  placeholder="Enter email">
-                            </div>
+                        <div class="footer_column foo1">
+                            <p>Contact Us</p>
+                            <form role="form" method="post">
+                                <div class="form-group">
+                                    <input type="email" class="form-control validate"  placeholder="Enter email">
+                                </div>
 
-                            <div class=" form-group text-area">
-                                <textarea class="form-control validate" rows="3" maxlength="500"  placeholder=" Write Message"></textarea>
-                            </div>
+                                <div class=" form-group text-area">
+                                    <textarea class="form-control validate" rows="3" maxlength="500"  placeholder=" Write Message"></textarea>
+                                </div>
 
-                            <button type="submit" id="contact_but" name="contact_button"> Submit</button>
-                        </form>
+                                <button type="submit" id="contact_but" name="contact_button"> Submit</button>
+                            </form>
+                        </div>
                     </div>
 
                 </div>

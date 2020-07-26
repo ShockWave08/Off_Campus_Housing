@@ -42,7 +42,7 @@ class Off_Campus_DB
       }
       catch (Exception $e)
       {
-          die("ERROR: Could not connect. " . $e->getMessage());   // If there is an error an exception is thrown
+         die("ERROR: Could not connect. " . $e->getMessage());   // If there is an error an exception is thrown
         //var_dump('Couldn\'t Establish A Database Connection. Due to the following reason: ' . $e->getMessage());
       }
     }
@@ -67,25 +67,28 @@ class Off_Campus_DB
     **/
     public function bind($param, $value, $type = null)
     {
-      if (is_null($type)) {
-        switch (true) {
-          case is_int($value):
-            $type = PDO::PARAM_INT;
-          break;
-          case is_bool($value):
-            $type = PDO::PARAM_BOOL;
-          break;
-          case is_null($value):
-            $type = PDO::PARAM_NULL;
-          break;
-          default:
-            $type = PDO::PARAM_STR;
-          break;
+        if (is_null($type))
+        {
+            switch (true)
+            {
+                case is_int($value):
+                    $type = PDO::PARAM_INT;
+                    break;
+                case is_bool($value):
+                    $type = PDO::PARAM_BOOL;
+                    break;
+                case is_null($value):
+                    $type = PDO::PARAM_NULL;
+                    break;
+                default:
+                    $type = PDO::PARAM_STR;
+                    break;
+            }
         }
-      }
 
       $this->DB_STMT->bindValue($param, $value, $type);
-    }
+
+  } // end function bind
 
 
     /**
@@ -122,30 +125,10 @@ class Off_Campus_DB
     public function fetchAll()
     {
       $this->execute();
+      echo 'fetchAll';
       return $this->DB_STMT->fetchAll(PDO::FETCH_ASSOC);
     }
 
   } // End class Off_Campus_DB
 
-
-/* Database credentials.  */
-// define('DB_SERVER', 'localhost');               // Host name of the MySQL server
-// define('DB_USERNAME', 'Off_Campus_Admin');      // account username
-// define('DB_PASSWORD', 'RefugE08**');            // MySQL account password
-// define('DB_NAME', 'off_campus_housing_db');     // Database Name
-
-/* Attempt to connect to MySQL database */
-// try
-// {
-//     // PDO object creation
-//     $pdo = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
-//
-//     // Set the PDO error mode to exception
-//     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//     echo "Connected successfully";
-// }
-// catch(PDOException $e)
-// {
-//     die("ERROR: Could not connect. " . $e->getMessage());   // If there is an error an exception is thrown
-// }
 ?>

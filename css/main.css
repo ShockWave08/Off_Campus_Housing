@@ -16,6 +16,7 @@ html, body
     /*background-color: rgba(250, 128, 114, 0.5); */
     background-color: #fff;
     overflow:auto;
+     text-rendering: optimizeLegibility;
     transition: .7s;
 }
 
@@ -473,7 +474,7 @@ nav
 .apartmentss
 {
     height: 350px;
-    width: auto;
+    width: 456px;
     margin: 20px 0;
     border-radius: 20px 20px;
     transition-duration: 0.3s;
@@ -482,13 +483,13 @@ nav
 
 .apartmentss:hover
 {
-    box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.5x);
+    box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.5);
     transition-duration: 0.3s;
 }
 
 .apartments_pic
 {
-    height: 268px;
+    height: 278px;
     width: 456px;
     background-position: center;
     background-repeat: no-repeat;
@@ -572,10 +573,11 @@ nav
 
 #footer p
 {
-    font-size: 25px;
-    font-weight: 900px;
+    font-size: 23px;
+    font-family: Montserrat, monospace;
+    font-weight: 500px;
     color: #ffaa00;
-    margin-bottom: 5px;;
+    margin-bottom: 5px;
 }
 
 #footer ul
@@ -587,6 +589,8 @@ nav
 {
     color: rgba(255, 170, 0, 0.8);
     list-style-type: none;
+    font-size: 15px;
+    font-family: Quicksand, sans-serif;
 }
 
 #footer form
@@ -596,7 +600,7 @@ nav
 
 #footer .form-group
 {
-    width: 60% !important;
+    width: 65% !important;
     height: auto;
     outline: 0;
     outline-color: 0;
@@ -638,13 +642,13 @@ nav
     background-color: #ffaa00;
     outline: 0;
     outline-color: none;
-    border: none;
-    border-radius: 20px;
+    border: 1px solid #febb11;
+    border-radius: 30px;
     color: #fff;
-    margin: 0 0 10px 100px;
+    margin: 0 0 10px 110px;
     width: auto;
     height: auto;
-    padding: 5px;
+    padding: 5px 10px;
 
 }
 

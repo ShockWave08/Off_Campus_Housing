@@ -16,27 +16,32 @@
     **/
     public function create_Landlord(array $landlord) :array
     {
-      $this->query("INSERT INTO `landlords_info` (Landlord_FName, Landlord_LName, Landlord_Gender, Landlord_Email, Landlord_Tel, Landlord_Passwd) VALUES (:fname, :lname, :gender, :email, :phone_no, :password)");
-      $this->bind('fname', $landlord['fname']);
-      $this->bind('lname', $landlord['lname']);
-      $this->bind('gender', $landlord['gender']);
-      $this->bind('email', $landlord['email']);
-      $this->bind('phone_no', $landlord['tel']);
-      $this->bind('password', $landlord['passwd']);
+        echo 'enters create';
+        $this->query("INSERT INTO `landlords_info` (Landlord_FName, Landlord_LName, Landlord_Gender, Landlord_Email, Landlord_Tel, Landlord_Passwd) VALUES (:fname, :lname, :gender, :email, :phone_no, :password)");
+        $this->bind('fname', $landlord['fname']);
+        $this->bind('lname', $landlord['lname']);
+        $this->bind('gender', $landlord['gender']);
+        $this->bind('email', $landlord['email']);
+        $this->bind('phone_no', $landlord['tel']);
+        $this->bind('password', $landlord['passwd']);
 
+        if ($this->execute())
+        {
+            $Response = array( 'status' => true );
+            echo 'User Created cl';
 
+            return $Response;
+        }
 
-      if ($this->execute())
-      {
-        $Response = array( 'status' => true, );
-        return $Response;
-      }
-      else
-      {
-        $Response = array('status' => false);
-        return $Response;
-      }
-    }
+        else
+        {
+            $Response = array('status' => false);
+            echo 'Did not create user';
+
+            return $Response;
+        }
+
+    } // end function create_Landlord
 
 
   /**
@@ -44,30 +49,23 @@
     * @return array
     * @desc Returns a user record based on the method parameter....
   **/
-  public function get_Landlord_Info(string $fname, string $lname)
+  public function get_Landlord_Info(string $fname)
   {
-    $this->query("SELECT * FROM `landlords_info` WHERE `Landlord_LName` = :lname");
-    $this->bind('lname', $lname);
+    $this->query("SELECT `Landlord_FName` AND `Landlord_LName` FROM `landlords_info` WHERE `Landlord_FName` = :fname");
+    $this->bind('lname', $fname);
     $this->execute();
 
-    // $this->query("SELECT * FROM `landlords_info` WHERE `Landlord_LName` = :lname");
-    // $this->bind('fname', $fname);
-    // $this->execute();
 
+    $fetched_name = $this->fetch();
 
-    $fetched_Fname = $this->fetch();
-    // $fetched_Lname = $this->fetch();
-    if (!empty($User)) {
-      $Response = array(
-        'status' => true,
-        'data' => $fetched_Fname
-      );
+    if (!empty($User))
+    {
+      $Response = array( 'status' => true, 'data' => $fetched_name);
+
       return $Response;
     }
-    return array(
-      'status' => false,
-      'data' => []
-    );
+
+    return array('status' => false, 'data' => []);
   }
 
 
@@ -90,9 +88,7 @@
     }
     else
     {
-      $Response = array(
-        'status' => false
-      );
+      $Response = array('status' => false);
       return $Response;
     }
   }
@@ -275,6 +271,7 @@
         if (!empty($User))
         {
             $Response = array('status' => true, 'data' => $User );
+            echo 'user fetched';
             return $Response;
         }
 
@@ -293,21 +290,16 @@
       $this->execute();
 
       $Email = $this->fetch();
-      if (empty($Email)) {
-        $Response = array(
-          'status' => true,
-          'data' => $Email
-        );
 
+      if (empty($Email)) {
+        $Response = array('status' => true, 'data' => $Email);
+        echo 'email fetched';
         return $Response;
       }
 
       if (!empty($Email)) {
-        $Response = array(
-          'status' => false,
-          'data' => $Email
-        );
-
+        $Response = array('status' => false, 'data' => $Email);
+        echo 'email not fetched';
         return $Response;
       }
     }

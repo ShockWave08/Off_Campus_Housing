@@ -12,7 +12,7 @@ require_once('C:\xampp\htdocs\off_campus_project\backend/Framework/LandlordsFram
      */
 class Register extends Controller
 {
-
+    public $active = 'Register'; //for highlighting the active link...
     private $register;
 
     /**
@@ -47,49 +47,59 @@ class Register extends Controller
         $EmailStatus = $this->register->fetchUser($email)['status'];
 
         $Error = array(
-            'name' => '',
+            'fname' => '',
+            'lname' => '',
+            'gender' => '',
             'email' => '',
             'tel' => '',
             'passwd' => '',
             'status' => false
         );
 
+
         if (preg_match('/[^A-Za-z\s]/', $lname))
         {
             $Error['fname'] = 'Only Alphabets are allowed.';
+            echo 'fname';
             return $Error;
         }
 
         if (preg_match('/[^A-Za-z\s]/', $lname))
         {
             $Error['lname'] = 'Only Alphabets are allowed.';
+            echo 'lname';
             return $Error;
         }
 
         if (!empty($EmailStatus))
         {
             $Error['email'] = 'Sorry. This Email Address has been taken.';
+            echo 'email';
             return $Error;
         }
 
-        if (!empty($gender))
+        if (empty($gender))
         {
             $Error['gender'] = 'Sorry. Please choose your gender.';
+            echo 'gender';
             return $Error;
         }
-
-        if (preg_match('/[^0-9_]/', $phone) && strlen($phone) < 10)
+        //  && strlen($phone) < 10
+        if (preg_match('/[^0-9_]/', $phone))
         {
             $Error['tel'] = 'Please, use a valid phone number with area code.';
+            echo 'tel';
             return $Error;
         }
 
         if (strlen($password) < 7)
         {
             $Error['passwd'] = 'Please, use a stronger password.';
+            echo 'pass';
             return $Error;
         }
 
+        echo 'got here to';
         $Payload = array(
             'fname' => $fname,
             'lname' => $lname,
@@ -99,12 +109,14 @@ class Register extends Controller
             'passwd' => password_hash($password, PASSWORD_BCRYPT)
         );
 
+        echo 'set up user creation';
         $Response = $this->register->create_Landlord($Payload);
+        echo 'created user';
 
         $Data = $this->register->fetchUser($email)['data'];
         //Makes a whole lot of sense to get rid of any critical information...
         unset($Data['passwd']);
-        unset($Data['passwd_verify']);
+        //unset($Data['passwd_verify']);
 
         if (!$Response['status']) {
         $Response['status'] = 'Sorry, An unexpected error occurred and your request could not be completed.';
@@ -113,7 +125,7 @@ class Register extends Controller
 
         $_SESSION['data'] = $Data;
         $_SESSION['auth_status'] = true;
-        header("Location: dashboard.php");
+        header("Location: index.php");
         return true;
     }
 

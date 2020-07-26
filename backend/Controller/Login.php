@@ -11,6 +11,7 @@
  */
 class Login extends Controller
 {
+    public $active = 'login'; //for highlighting the active link...
     private $landlords;
 
 
@@ -41,7 +42,7 @@ class Login extends Controller
 
         if (!$EmailRecords['status'])
         {
-            if (password_verify($password, $EmailRecords['data']['password']))
+            if (password_verify($password, $EmailRecords['data']['Landlord_Passwd']))
             {
                 //check if the remember_me was selected...
                 $Response = array( 'status' => true );
