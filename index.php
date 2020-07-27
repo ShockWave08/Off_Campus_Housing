@@ -13,13 +13,17 @@
     {
         $active = $Login->active;
         $Response = $Login->login($_POST);
-        echo 'login';
     }
 
     else if (isset($_POST['register_button']) && count($_POST) > 0)
     {
         $active = $Register->active;
         $Response = $Register->register($_POST);
+    }
+
+    elseif (isset($_POST['contact_button']) && count($_POST) > 0)
+    {
+        // code to send mail
     }
 
 ?>
@@ -58,7 +62,7 @@
         <!-- Font Awesome 5  -->
         <script src="https://kit.fontawesome.com/cfe5e987ca.js" crossorigin="anonymous"></script>
 
-        <title>Chill Housing</title>
+        <title>CHILL Housing</title>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@100&display=swap');
 
@@ -367,7 +371,6 @@
             }
         </script>
 
-
         <!-- menu bar -->
         <aside id="menu">
            <div id="menu_button" onclick="openNav()">
@@ -421,6 +424,11 @@
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="customCheckc" name="example7">
                         <label class="custom-control-label" for="customCheckc">Air Condition</label>
+                    </div>
+
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customCheckdd" name="example2">
+                        <label class="custom-control-label" for="customCheckdd">Separate Bathrooms</label>
                     </div>
 
                     <div class="custom-control custom-switch">
@@ -701,6 +709,7 @@
 
         </script>
 
+        <!-- Apartment Listings -->
         <main id="apartment_display">
             <div class="container-fluid">
                 <!-- row 1 -->
@@ -746,23 +755,25 @@
                     </div>
 
                     <div class="col-sm-4">
-                        <div class="apartmentss">
-                            <div class="apartments_pic apartments_pic3">
+                        <a href="Apartments.php" target="_blank" class="Apartment_links">
+                            <div class="apartmentss">
+                                <div class="apartments_pic apartments_pic3">
 
-                            </div>
-                            <div class="apartmentss_info">
-                                <div class="apartments_addr">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
                                 </div>
-                                <div class="apartments_xinfo">
-                                    <ul>
-                                        <li>Mr. Lorem ipsum</li>
-                                        <li>$500</li>
-                                        <li>1 km</li>
-                                    </ul>
+                                <div class="apartmentss_info">
+                                    <div class="apartments_addr">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                                    </div>
+                                    <div class="apartments_xinfo">
+                                        <ul>
+                                            <li>Mr. Lorem ipsum</li>
+                                            <li>$500</li>
+                                            <li>1 km</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                 </div>
@@ -900,12 +911,7 @@
             </div>
         </main>
 
-        <section class ="transportation">
-            <div class="container-fluid">
-
-            </div>
-        </section>
-
+        <!-- Footer -->
         <footer id="footer">
             <div class="container-fluid">
                 <div class="row">
@@ -945,6 +951,7 @@
                                 <li>On Campus Accomodation</li>
                                 <li>Halls Accomodation</li>
                                 <li>International Office</li>
+                                <li>Transportation</li>
                                 <li>View All Listings</li>
                             </ul>
                         </div>
@@ -973,8 +980,9 @@
             </div>
         </footer>
 
+        <!-- Copyright -->
         <div id="copy">
-            <p>Copyright &#169; <?php echo date('Y'); ?> CHILL Off Campus Housing Powered by Gator Systems</p>
+            <p>Copyright &#169; <?php echo date('Y'); ?> CHILL Housing Powered by Gator Systems</p>
         </div>
 
     </body>

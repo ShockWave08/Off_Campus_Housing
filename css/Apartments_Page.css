@@ -1,0 +1,524 @@
+
+/* ******************* Header ************************ */
+header
+{
+    padding: 0;
+    width: 100%;
+    height: auto;
+    margin:15px 0 30px 0;
+}
+
+header h2
+{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ffaa00;
+}
+
+#logo p
+{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    color: #ffaa00;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+
+.add_house_button
+{
+    width: 25px;
+    height: 40px;;
+    font-size: 20px;
+    margin: 0 15px 0 0;
+    text-align: center;
+    padding: 0px 0px;
+    border: 2px solid #ffaa00;
+    border-radius: 10px 10px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #fff;
+    cursor: pointer;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.fa-user
+{
+    color: #ffaa00;
+    font-size: 15px;
+}
+
+.add_house_button:hover
+{
+    border: 2px solid #fff;
+    background-color: #ffaa00;
+    -webkit-box-shadow: 2px 2px 10px 2px gray;
+    box-shadow: 2px 2px 10px 2px gray;
+}
+
+
+
+/* ********************************************************* */
+
+
+/* ***************** Apartment Pics *********************** */
+
+#Apartment_pics
+{
+    margin: 0 auto;
+    padding: 0;
+    height: 50%;
+    width: 80%;
+    border: 1px solid red;
+}
+
+#carouselExampleIndicators
+{
+    margin: 30px 200px;
+    border-radius: 20px;
+}
+
+.carousel-item
+{
+    height: 600px;
+    min-height: 600px;
+    border-radius: 20px;
+}
+
+.carousel-inner img
+{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.carousel-control-prev .carousel-control-next-icon .sr-only, .carousel-control-next .carousel-control-prev-icon .sr-only
+{
+    color: #ffaa00 !important;
+}
+
+
+/* ********************************************************* */
+
+
+
+/* ***************** Form *********************** */
+
+#form-container
+{
+    position: absolute;
+    z-index: 200;
+    height: 400px;
+    width: 380px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 5px;
+    overflow:hidden;
+    border-radius: 30px;
+    transition: .8s;
+    transition-timing-function: ease-in-out;
+}
+
+#form-container .button-box
+{
+    width: 225px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+
+#form-container .toggle-btn
+{
+    padding: 10px 30px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+#form-container #btn
+{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 120px;
+    height: 100%;
+    color: #ffaa00;
+    /*background-image: linear-gradient(to right, #ff105f, #ffad06);*/
+    background-image: linear-gradient(to right,  #ffaa00, #feae63);
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+#form-container .input-group
+{
+    top: 100px;
+    position: absolute;
+    width: 300px;
+    transition: .5s
+}
+
+#form-container .form-group
+{
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+#form-container .form-control
+{
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+    background-color: transparent;
+    outline: 0;
+    outline-color: transparent;
+    border-radius: 30px;
+    border: 2px solid #ffaa00 !important;
+}
+
+#form-container input[type="text"]:placeholder-shown,
+#form-container input[type="email"]:placeholder-shown,
+#form-container input[type="tel"]:placeholder-shown,
+#form-container input[type="password"]:placeholder-shown
+{
+    color: #ffaa00  !important;
+    padding: 0 20px;
+}
+
+#form-container .submit_button
+{
+    width: 45%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    background: linear-gradient(to right,  #ffaa00, #ffae33);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+
+#form-container #login
+{
+    left: 30px;
+}
+
+
+#form-container #register
+{
+    left: 450px;
+}
+
+#form-container label
+{
+    color: #ffaa00;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+
+/* ********************************************************* */
+
+
+
+
+
+/* ***************** Apartment Info *********************** */
+
+.separator
+{
+    background-color: #ffaa00;
+    width: 35%;
+    margin: 10px 30px;
+}
+
+
+#apartment_main
+{
+    margin:0;
+    padding: 25px 50px;
+    background-color: rgba(0, 0, 50, 1);
+    width: 100%;
+    height: auto;
+}
+
+#apartment_main .section-heading
+{
+    font-family: Quicksand,sans-serif;
+    color: #fff;
+    margin: 0 0 30px 0;
+    text-align: center;
+}
+
+#apartment_main .apart_info_sec
+{
+    padding: 0 30px;
+    width: auto;
+    height: auto;
+}
+
+#apartment_main .sec-title
+{
+    font-family: Quicksand ,sans-serif;
+    color: rgba(255,170,0,1);
+    font-weight: 600;
+}
+
+#apartment_main .sec-info
+{
+    font-family: Roboto ,monospace;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+}
+
+#apartment_main ul
+{
+    list-style-type: none;
+    padding: 0;
+}
+
+#apartment_main li
+{
+    font-family: Roboto ,monospace;
+    color: rgba(255,255,255,1);
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+
+/* *************************************************** */
+
+
+
+/* ****************************** Reviews ******************************* */
+
+#separator2
+{
+     margin: 70px auto 50px auto;
+     width: 80%;
+     background-color: rgb(255, 170, 0);
+}
+
+#Apartment_reviews
+{
+    margin: 10px 0 80px 0;
+    padding: 0 20px;
+}
+
+#Apartment_reviews h5
+{
+    color: rgba(0, 0, 50, 1);
+}
+
+#Apartment_reviews span i
+{
+    color: red;
+}
+
+
+#Apartment_reviews .review_sec
+{
+    margin: 0;
+    padding: 10px 15px;
+}
+
+#Apartment_reviews .review_sec .review_name
+{
+    color: rgba(0, 0, 0, 1);
+    padding: 0;
+    font-weight: 600px;
+    font-family: Quicksand ,sans-serif;
+}
+
+#Apartment_reviews .review_sec .review_date
+{
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: -20px;
+}
+
+#Apartment_reviews .review_sec .review_feedback
+{
+    color: rgba(0, 0, 0, 0.9);
+    font-family: Quicksand ,sans-serif;
+}
+
+
+
+
+/* *************************************************** */
+
+
+
+
+
+
+/* ****************************** Maps ******************************* */
+
+.map-responsive
+{
+    overflow:hidden;
+    padding-bottom:50%;
+    position:relative;
+    height:0;
+}
+
+.map-responsive iframe
+{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+/* *********************************************************************** */
+
+
+
+
+
+/* **************************** Foooter ********************************** */
+#footer
+{
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 50, 1);
+    padding: 25px 5px;
+}
+
+#footer .footer_column
+{
+
+
+}
+
+#footer p
+{
+    font-size: 23px;
+    font-family: Montserrat, monospace;
+    font-weight: 500px;
+    color: #ffaa00;
+    margin-bottom: 5px;
+}
+
+#footer ul
+{
+    list-style-type: none;
+}
+
+#footer li
+{
+    color: rgba(255, 170, 0, 0.8);
+    list-style-type: none;
+    font-size: 15px;
+    font-family: Quicksand, sans-serif;
+    transition: .5s;
+}
+
+#footer li:hover
+{
+    border-bottom: 2px solid #ffaa00;
+    transition: .5s;
+    cursor: pointer;
+}
+
+#footer form
+{
+    width: 100%;
+}
+
+#footer .form-group
+{
+    width: 65% !important;
+    height: auto;
+    outline: 0;
+    outline-color: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 2px solid #ffaa00;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#footer .form-control
+{
+    border: none;
+    outline: 0;
+    outline-color: 0;
+    background-color: transparent;
+    color: #fff;
+}
+
+
+#footer ::placeholder
+{
+    color: #ffaa00;
+}
+
+#footer .text-area
+{
+    width: 80% !important;
+    height: auto;
+    border-left: 2px solid #ffaa00 !important;
+    border-right: 2px solid #ffaa00 !important;
+    border-top: 2px solid #ffaa00 !important;
+    border-bottom: 2px solid #ffaa00 !important;
+    border-radius: 20px;
+}
+
+#footer #contact_but
+{
+    background-color: #ffaa00;
+    outline: 0;
+    outline-color: none;
+    border: 1px solid #febb11;
+    border-radius: 30px;
+    color: #fff;
+    margin: 0 0 0 190px;
+    width: auto;
+    height: auto;
+    padding: 5px 10px;
+}
+
+
+/* ******************************************************************* */
+
+
+
+/* **************************** Copy right ********************************** */
+
+#copy
+{
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgba(250, 170, 0, 0.9);
+    padding: 5px 0 5px 30px;
+}
+
+#copy p
+{
+    margin: 0;
+    color: rgba(0, 0, 50, 1);
+    font-family: Quicksand,fantasy;
+}
+
+/* ******************************************************************* */

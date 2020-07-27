@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,8 +54,12 @@
         <header>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
                         <h2>Chill off-campus housing</h2>
+                    </div>
+                    <div class="col-sm-1">
+                        <i class="fas fa-sign-out-alt"></i>
                     </div>
                 </div>
             </div>
