@@ -322,6 +322,7 @@ header h2
 #Apartment_reviews h5
 {
     color: rgba(0, 0, 50, 1);
+    margin: 0 0 45px 0;
 }
 
 #Apartment_reviews span i
@@ -334,13 +335,14 @@ header h2
 {
     margin: 0;
     padding: 10px 15px;
+    width: 80%;
 }
 
 #Apartment_reviews .review_sec .review_name
 {
     color: rgba(0, 0, 0, 1);
     padding: 0;
-    font-weight: 600px;
+    font-weight: 600;
     font-family: Quicksand ,sans-serif;
 }
 
@@ -353,10 +355,72 @@ header h2
 #Apartment_reviews .review_sec .review_feedback
 {
     color: rgba(0, 0, 0, 0.9);
-    font-family: Quicksand ,sans-serif;
+    font-family: Roboto ,monospace;
+}
+
+#feeback_sec
+{
+    margin: 0;
+    padding: 10px 10px;
+}
+
+#feeback_sec #feedback-form-title
+{
+    padding: 0;
+    margin: 15px 0 25px;
+    color: rgb(255, 170, 0);
+}
+
+#feeback_sec form
+{
+    width: 100%;
+}
+
+#feeback_sec .form-group
+{
+    width: 35% !important;
+    height: auto;
+    outline: 0;
+    outline-color: 0;
+    border: 2px solid 2px solid rgba(0, 0, 40, 1);
+    border-radius: 10px;
+}
+
+#feeback_sec .form-control
+{
+    border: 2px solid rgba(0, 0, 40, 0.8);
+    outline: 0;
+    outline-color: 0;
+    background-color: transparent;
+    color: rgba(0, 0, 40, 1);
+    border-radius: 20px;
 }
 
 
+#feeback_sec ::placeholder
+{
+    color: rgba(0, 0, 40, 0.6);
+}
+
+#feeback_sec .text-area
+{
+    width: 60% !important;
+    height: auto;
+}
+
+#feeback_sec .contact_button #feedback_but
+{
+    background-color: rgba(255, 170, 0, 0.9);
+    outline: 0;
+    outline-color: none;
+    border: 1px solid #febb11;
+    border-radius: 30px;
+    color: #fff;
+    margin: 0 auto;
+    width: 60%;
+    height: auto;
+    padding: 5px 10px;
+}
 
 
 /* *************************************************** */
@@ -420,6 +484,7 @@ header h2
 #footer ul
 {
     list-style-type: none;
+    padding: 0;
 }
 
 #footer li

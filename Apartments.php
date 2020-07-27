@@ -381,8 +381,6 @@
             </div>
         </main>
 
-
-<!--
         <section id ="Apartment_Location">
             <div class="container-fluid">
                 <div class="map-responsive">
@@ -390,7 +388,7 @@
                 </div>
             </div>
         </section>
--->
+
         <hr id="separator2">
 
         <section id ="Apartment_reviews">
@@ -412,7 +410,7 @@
                             <p class="review_date"> November 2013</p>
                             <p class="review_feedback">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                
                             </p>
                         </div>
 
@@ -473,7 +471,24 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-12"></div>
+                    <div class="col-sm-12">
+                        <div id="feeback_sec">
+                            <h3 id="feedback-form-title"> Tell Us About Your Experience</h3>
+                            
+                            <form role="form" method="post">
+                                <div class="form-group">
+                                    <input type="text" class="form-control validate"  placeholder="Enter Name" required>
+                                </div>
+                                
+                                <div class=" form-group text-area">
+                                    <textarea class="form-control validate" rows="3" maxlength="500"  placeholder=" Please Leave Feedback"></textarea>
+                                </div>
+                                <div class="contact_button">
+                                    <button type="submit" id="feedback_but" name="contact_button"> Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
 
             </div>

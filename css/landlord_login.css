@@ -34,9 +34,16 @@ header h2
     color: #f1aa00;
 }
 
-header i
+header .logout
 {
-    color:ffaa00;
+    text-decoration: none;
+    text-decoration-color: none;
+    color: #ffaa00;
+}
+
+#logout_but .fa-sign-out-alt
+{
+    color: #ffaa00;
     font-size: 30px;
 }
 
@@ -44,7 +51,7 @@ section
 {
     margin: 0;
     padding: 0;
-    
+
 }
 
 
@@ -100,7 +107,7 @@ section
     line-height: 30%;
 }
 
-.landlord_basic_info .basic_info 
+.landlord_basic_info .basic_info
 {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -134,12 +141,13 @@ section
 .landlord_basic_info .basic_button
 {
     border: 2px solid #ffaa00;
-    height: 40px;
+    height: auto;
     width: 60px;
     border-radius: 10px 10px;
     color: #ffaa00;
     font-weight: 600;
     margin: 0 0 10px 0;
+    padding: 5px 7px !important;
     overflow: hidden;
 }
 
@@ -147,12 +155,16 @@ section
 .landlord_basic_info .btn_label
 {
     overflow:hidden;
-    
 }
 
 .landlord_basic_info input[type="checkbox"]
 {
-     margin-right: 10px !important; 
+     margin-right: 10px !important;
+}
+
+.landlord_basic_info input[type="submit"]
+{
+     padding: 5px 7px;
 }
 
 .landlord_basic_info .custom-control-label
@@ -166,11 +178,214 @@ section
 
 
 
+.landlord_basic_info .attr_butt
+{
+    width: 30%;
+    padding: 10px 0;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+    background: linear-gradient(to right,  #ffaa00, #ffae33);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.landlord_basic_info .attr_butt:hover
+{
+    box-shadow: 2px 2px 20px 2px #111;
+    transition: .5s;
+}
+
+
+.landlord_basic_info .pics_butt
+{
+    width: 30%;
+    padding: 10px 0;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+    background: linear-gradient(to right,  #ffaa00, #ffae33);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.landlord_basic_info .pics_butt:hover
+{
+    box-shadow: 2px 2px 20px 2px #111;
+    transition: .5s;
+}
+
+.landlord_basic_info .form-control
+{
+    height: 40px;
+    width: 100%;
+    border: 2px solid #ffaa00;
+    border-radius: 20px 20px;
+    margin: 0 auto;
+    outline-color: none;
+    outline-width: 0;
+}
+
+.landlord_basic_info .update_button
+{
+    border: 2px solid #ffaa00;
+    height: auto;
+    width: auto;
+    border-radius: 10px 10px;
+    color: #ffaa00;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    padding: 5px 7px !important;
+    overflow: hidden;
+}
+
+
+#fname_update, #lname_update, #email_update, #tel_update, #passwd_update
+{
+    display: none;
+}
+
+#addr1_update, #addr2_update, #parish_update, #room_update, #avail_update, #listing_update, #distance_update, #coord_update
+{
+    display: none;
+}
 
 
 
 
+/* **************************** Foooter ********************************** */
+#footer
+{
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 50, 1);
+    padding: 25px 5px;
+}
+
+#footer .footer_column
+{
+
+
+}
+
+#footer p
+{
+    font-size: 23px;
+    font-family: Montserrat, monospace;
+    font-weight: 500px;
+    color: #ffaa00;
+    margin-bottom: 5px;
+}
+
+#footer ul
+{
+    list-style-type: none;
+    padding: 0;
+}
+
+#footer li
+{
+    color: rgba(255, 170, 0, 0.8);
+    list-style-type: none;
+    font-size: 15px;
+    font-family: Quicksand, sans-serif;
+    transition: .5s;
+}
+
+#footer li:hover
+{
+    border-bottom: 2px solid #ffaa00;
+    transition: .5s;
+    cursor: pointer;
+}
+
+#footer form
+{
+    width: 100%;
+}
+
+#footer .form-group
+{
+    width: 65% !important;
+    height: auto;
+    outline: 0;
+    outline-color: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 2px solid #ffaa00;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#footer .form-control
+{
+    border: none;
+    outline: 0;
+    outline-color: 0;
+    background-color: transparent;
+    color: #fff;
+}
+
+
+#footer ::placeholder
+{
+    color: #ffaa00;
+}
+
+#footer .text-area
+{
+    width: 80% !important;
+    height: auto;
+    border-left: 2px solid #ffaa00 !important;
+    border-right: 2px solid #ffaa00 !important;
+    border-top: 2px solid #ffaa00 !important;
+    border-bottom: 2px solid #ffaa00 !important;
+    border-radius: 20px;
+}
+
+#footer #contact_but
+{
+    background-color: #ffaa00;
+    outline: 0;
+    outline-color: none;
+    border: 1px solid #febb11;
+    border-radius: 30px;
+    color: #fff;
+    margin: 0 0 0 190px;
+    width: auto;
+    height: auto;
+    padding: 5px 10px;
+}
+
+
+/* ******************************************************************* */
 
 
 
+/* **************************** Copy right ********************************** */
 
+#copy
+{
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgba(250, 170, 0, 0.9);
+    padding: 5px 0 5px 30px;
+}
+
+#copy p
+{
+    margin: 0;
+    color: rgba(0, 0, 50, 1);
+    font-family: Quicksand,fantasy;
+}
+
+/* ******************************************************************* */
