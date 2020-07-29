@@ -16,7 +16,7 @@
     **/
     public function create_Landlord(array $apartment) :array
     {
-      $this->query("INSERT INTO `landlords_info` (Apartment_Addr_1, Apartment_Addr_2, Apartment_Parish, Apartment_Distance, Apartment_Latitude, Apartment_Longitude, Rent, Rooms_Available, Rooms_Occupied)
+      $this->query("INSERT INTO `apartments_info` (Apartment_Addr_1, Apartment_Addr_2, Apartment_Parish, Apartment_Distance, Apartment_Latitude, Apartment_Longitude, Rent, Rooms_Available, Rooms_Occupied)
       VALUES (:addr1, :addr2, :parish, :distance, :latitude, :longitude, :rent, :available, :occupied)");
       $this->bind('addr1', $landlord['aadr1']);
       $this->bind('addr2', $landlord['addr2']);

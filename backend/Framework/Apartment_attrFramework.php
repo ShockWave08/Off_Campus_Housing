@@ -15,7 +15,7 @@
       **/
       public function create_Landlord(array $apartment_attr) :array
       {
-        $this->query("INSERT INTO `landlords_info` (Available, All_Inclusive, Internet, Water, Washing_Machine, Gas, BurglarBars, Air_Condition, Shared, Studio, Flat, Apartment, Fenced, Furnished, Unfurnished, Water_Heater, Live_In)
+        $this->query("INSERT INTO `apartment_attr` (Available, All_Inclusive, Internet, Water, Washing_Machine, Gas, BurglarBars, Air_Condition, Shared, Studio, Flat, Apartment, Fenced, Furnished, Unfurnished, Water_Heater, Live_In)
         VALUES (:avail, :inclusive, :internet, :water, :machine, :gas, :bars, :aircon, :shared, :studio, :flat, :apartment, :fence, :furnished, :unfurnished, :heater, :livein)");
         $this->bind('avail', $apartment_attr['availability']);
         $this->bind('inclusive', $apartment_attr['inclusive']);
@@ -57,9 +57,9 @@
     public function update_Apartment_Attr(array $apartment_attr) :array
     {
         //$this->query("INSERT INTO `landlords_info` (Available, All_Inclusive, Internet, Water, Washing_Machine, Gas, BurglarBars, Air_Condition, Shared, Studio, Flat, Apartment, Fenced, Furnished, Unfurnished, Water_Heater, Live_In)
-        $this->query("UPDATE `apartment_info` SET Available = :avail, All_Inclusive = :inclusive, Internet = :internet, Water = : water, Washing_Machine = :machine,
+        $this->query("UPDATE `apartment_attr` SET Available = :avail, All_Inclusive = :inclusive, Internet = :internet, Water = : water, Washing_Machine = :machine,
             Gas = :gas, BurglarBars = :gas, Air_Condition = :aircon, Shared = :shared, Studio = :studio, Flat = :flat, Apartment = :apartment, Fenced = :fenced,
-            Furnished = :furnished, Unfurnished = :unfurnished, Water_Heater = :heater, Live_In = :livein WHERE Apartment-Attr_ID = :attr_ID");
+            Furnished = :furnished, Unfurnished = :unfurnished, Water_Heater = :heater, Live_In = :livein WHERE Apartment_Attr_ID = :attr_ID");
 
             $this->bind('avail', $apartment_attr['availability']);
             $this->bind('inclusive', $apartment_attr['inclusive']);

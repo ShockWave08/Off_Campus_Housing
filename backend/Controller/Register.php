@@ -23,7 +23,7 @@ class Register extends Controller
     public function __construct()
     {
         if (isset($_SESSION['auth_status']))
-            header("Location: dashboard.php");
+            header("Location: landlord_login.php");
 
         $this->register = new Landlords();
     } // end constructor
@@ -60,46 +60,46 @@ class Register extends Controller
         if (preg_match('/[^A-Za-z\s]/', $lname))
         {
             $Error['fname'] = 'Only Alphabets are allowed.';
-            echo 'fname';
+            
             return $Error;
         }
 
         if (preg_match('/[^A-Za-z\s]/', $lname))
         {
             $Error['lname'] = 'Only Alphabets are allowed.';
-            echo 'lname';
+            
             return $Error;
         }
 
         if (!empty($EmailStatus))
         {
             $Error['email'] = 'Sorry. This Email Address has been taken.';
-            echo 'email';
+
             return $Error;
         }
 
         if (empty($gender))
         {
             $Error['gender'] = 'Sorry. Please choose your gender.';
-            echo 'gender';
+
             return $Error;
         }
         //  && strlen($phone) < 10
         if (preg_match('/[^0-9_]/', $phone))
         {
             $Error['tel'] = 'Please, use a valid phone number with area code.';
-            echo 'tel';
+            
             return $Error;
         }
 
         if (strlen($password) < 7)
         {
             $Error['passwd'] = 'Please, use a stronger password.';
-            echo 'pass';
+            
             return $Error;
         }
 
-        echo 'got here to';
+        
         $Payload = array(
             'fname' => $fname,
             'lname' => $lname,
@@ -109,9 +109,9 @@ class Register extends Controller
             'passwd' => password_hash($password, PASSWORD_BCRYPT)
         );
 
-        echo 'set up user creation';
+        
         $Response = $this->register->create_Landlord($Payload);
-        echo 'created user';
+        
 
         $Data = $this->register->fetchUser($email)['data'];
         //Makes a whole lot of sense to get rid of any critical information...

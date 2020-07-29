@@ -58,7 +58,7 @@
                         <h2>Chill off-campus housing</h2>
                     </div>
                     <div class="col-sm-1">
-                        <a href="C:\xampp\htdocs\off_campus_project\logout.php" class="logout">
+                        <a href="\off_campus_project\logout.php" class="logout">
                             <div id="logout_but">
                                 <i class="fas fa-sign-out-alt"></i>
                             </div>
@@ -294,7 +294,7 @@
             <div class="container base">
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-sm-12">
                             <div class="landlord_basic_info">
                                 <h3>Apartment Information</h3>
                                 <div class="basic">
@@ -322,7 +322,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-sm-12">
                             <div class="landlord_basic_info">
                                 <div class="basic">
                                     <div class="basic_info">
@@ -349,7 +349,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-sm-12">
                             <div class="landlord_basic_info">
                                 <div class="basic">
                                     <div class="basic_info">
@@ -376,7 +376,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-sm-12">
                             <div class="landlord_basic_info">
                                 <div class="basic">
                                     <div class="basic_info">
@@ -404,7 +404,7 @@
 
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-sm-12">
                             <div class="landlord_basic_info">
                                 <div class="basic">
                                     <div class="basic_info">
@@ -432,7 +432,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-sm-12">
                             <div class="landlord_basic_info">
                                 <div class="basic">
                                     <div class="basic_info">
@@ -459,7 +459,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-sm-12">
                             <div class="landlord_basic_info">
                                 <div class="basic">
                                     <div class="basic_info">
@@ -487,7 +487,7 @@
 
 
                     <div class="row ">
-                        <div class="col-md-12">
+                        <div class="col-sm-12">
                             <div class="landlord_basic_info">
                                 <div class="basic">
                                     <div class="basic_info">

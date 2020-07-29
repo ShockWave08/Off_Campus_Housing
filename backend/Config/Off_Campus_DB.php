@@ -38,7 +38,6 @@ class Off_Campus_DB
       {
         // PDO object creation
         $this->DB_HANDLE = new PDO($Dsn, $this->DB_USERNAME, $this->DB_PASSWORD, $Options);
-        //echo "Connected successfully";
       }
       catch (Exception $e)
       {

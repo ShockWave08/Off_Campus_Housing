@@ -28,15 +28,13 @@
         if ($this->execute())
         {
             $Response = array( 'status' => true );
-            echo 'User Created cl';
-
+    
             return $Response;
         }
 
         else
         {
             $Response = array('status' => false);
-            echo 'Did not create user';
 
             return $Response;
         }
@@ -271,7 +269,7 @@
         if (!empty($User))
         {
             $Response = array('status' => true, 'data' => $User );
-            echo 'user fetched';
+            
             return $Response;
         }
 
@@ -293,13 +291,13 @@
 
       if (empty($Email)) {
         $Response = array('status' => true, 'data' => $Email);
-        echo 'email fetched';
+        
         return $Response;
       }
 
       if (!empty($Email)) {
         $Response = array('status' => false, 'data' => $Email);
-        echo 'email not fetched';
+        
         return $Response;
       }
     }
