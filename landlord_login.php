@@ -1,3 +1,14 @@
+<?php
+    // Include config file
+    //require_once('C:\xampp\htdocs\off_campus_project\backend\Controller\Controller.php');
+    //require_once('C:\xampp\htdocs\off_campus_project\backend/Framework/LandlordsFramework.php');
+ ?>
+
+ <?php
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -152,8 +163,8 @@
                                <h3>Basic Information</h3>
                                <div class="basic">
                                   <div class="basic_info">
-                                      <p class="basic_desc">First Name:</p>
-                                      <p class="basic_name"> John Doe</p>
+                                      <p class="basic_desc">First Name</p>
+                                      <p class="basic_name"> <?php echo $_SESSION['fname']?></p>
                                   </div>
                                   <button type="button" class="btn basic_button" id="basic_fname_button"> <span class="btn_label">Edit</span> </button>
                                </div>
