@@ -428,6 +428,7 @@ header #bg-overlay #go-down .fa-angle-down
 
 #form-container
 {
+    display: none;
     position: absolute;
     z-index: 200;
     height: 350px;

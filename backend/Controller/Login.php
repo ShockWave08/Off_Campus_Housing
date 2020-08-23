@@ -22,7 +22,9 @@ class Login extends Controller
     **/
     public function __construct()
     {
-        if (isset($_SESSION['auth_status'])) header("Location: landlord_login.html");
+        if (isset($_SESSION['auth_status'])) 
+            header("Location: welcome.php");
+            
         $this->landlords = new Landlords();
     }
 
@@ -37,9 +39,9 @@ class Login extends Controller
     {
         $email = $this->test_input($data['login_email']);
         $password = $this->test_input($data['login_passwd']);
-
+        
         $EmailRecords = $this->landlords->fetchEmail($email);
-
+        
         if (!$EmailRecords['status'])
         {
             if (password_verify($password, $EmailRecords['data']['Landlord_Passwd']))
@@ -49,15 +51,16 @@ class Login extends Controller
 
                 $_SESSION['data'] = $EmailRecords['data'];
                 $_SESSION['auth_status'] = true;
-                header("Location: landlord_login.html");
+                header("Location: welcome.php");
             }
-
-            $Response = array('status' => false );
-
+            
+            $Response = array('status' => false, );
+    
             return $Response;
-        }
 
-        $Response = array('status' => false );
+        }
+        
+        $Response = array('status' => false, );
 
         return $Response;
     }
@@ -68,7 +71,8 @@ class Login extends Controller
     * @return array|boolean
     * @desc Verifies and redirects a user by calling the login method on the LoginModel...
     **/
-    public function test_input($data) {
+    public function test_input($data) 
+    {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);

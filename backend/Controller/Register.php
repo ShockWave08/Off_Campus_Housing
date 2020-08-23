@@ -23,7 +23,7 @@ class Register extends Controller
     public function __construct()
     {
         if (isset($_SESSION['auth_status']))
-            header("Location: landlord_login.php");
+            header("Location: welcome.php");
 
         $this->register = new Landlords();
     } // end constructor
@@ -57,13 +57,19 @@ class Register extends Controller
         );
 
 
-        if (preg_match('/[^A-Za-z\s]/', $lname))
+        // Remove all illegal characters from first name
+        $fname = filter_var($fname, FILTER_SANITIZE_STRING);
+        
+        if (preg_match('/[^A-Za-z\s]/', $fname))
         {
             $Error['fname'] = 'Only Alphabets are allowed.';
             
             return $Error;
         }
 
+        // Remove all illegal characters from last name
+        $lname = filter_var($lname, FILTER_SANITIZE_STRING);
+        
         if (preg_match('/[^A-Za-z\s]/', $lname))
         {
             $Error['lname'] = 'Only Alphabets are allowed.';
@@ -71,19 +77,34 @@ class Register extends Controller
             return $Error;
         }
 
+
+        // Remove all illegal characters from email
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        
         if (!empty($EmailStatus))
         {
             $Error['email'] = 'Sorry. This Email Address has been taken.';
 
             return $Error;
         }
+        
+        
+        
+        // validate email
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL) === false)
+        {
+            $Error['email'] = 'Sorry. This is not a Valid Email';
+        }
 
+        
         if (empty($gender))
         {
             $Error['gender'] = 'Sorry. Please choose your gender.';
 
             return $Error;
         }
+        
+        
         //  && strlen($phone) < 10
         if (preg_match('/[^0-9_]/', $phone))
         {
@@ -116,7 +137,7 @@ class Register extends Controller
         $Data = $this->register->fetchUser($email)['data'];
         //Makes a whole lot of sense to get rid of any critical information...
         unset($Data['passwd']);
-        //unset($Data['passwd_verify']);
+        unset($Data['passwd_verify']);
 
         if (!$Response['status']) {
         $Response['status'] = 'Sorry, An unexpected error occurred and your request could not be completed.';
@@ -125,7 +146,7 @@ class Register extends Controller
 
         $_SESSION['data'] = $Data;
         $_SESSION['auth_status'] = true;
-        header("Location: index.php");
+        header("Location: welcome.php");
         return true;
     }
 

@@ -1,14 +1,20 @@
 <?php
     require_once('C:\xampp\htdocs\off_campus_project\backend\Controller\Register.php');
     require_once('C:\xampp\htdocs\off_campus_project\backend\Controller\Login.php');
+    
+    // Prevent the page from resending post data when reloaded after a failed login or registration
+    //include('C:\xampp\htdocs\off_campus_project\prevent_resend.php');
 ?>
 
+
+    
+
 <?php
+
   $Login = new Login();
   $Register = new Register();
   $Response = [];
-
-
+  
     if (isset($_POST['login_button']) && count($_POST) > 0)
     {
         $active = $Login->active;
@@ -21,7 +27,7 @@
         $Response = $Register->register($_POST);
     }
 
-    elseif (isset($_POST['contact_button']) && count($_POST) > 0)
+    else if (isset($_POST['contact_button']) && count($_POST) > 0)
     {
         // code to send mail
     }
@@ -169,15 +175,15 @@
                         <div class=" form-group md-form mb-1">
                             <label data-error="wrong" data-success="right" for="fname"></label>
                             <input type="text" class="form-control validate" id="fname" aria-describedby="nameHelp" placeholder="Enter First Name" name="fname" required>
-                            <?php if ( isset($_POST['register_button']) && isset($Response['name']) && !empty($Response['fname'])): ?>
+                            <?php if ( isset($_POST['register_button']) && isset($Response['fname']) && !empty($Response['fname'])): ?>
                                 <small class="text-danger"><?php echo $Response['fname']; ?></small>
                             <?php endif; ?>
                         </div>
 
                         <div class=" form-group md-form mb-1">
                             <label data-error="wrong" data-success="right" for="lname"></label>
-                            <input type="text" class="form-control validate" id="email1" aria-describedby="nameHelp" placeholder="Enter Last Name" name="lname" required>
-                            <?php if (isset($_POST['register_button']) && isset($Response['name']) && !empty($Response['lname'])): ?>
+                            <input type="text" class="form-control validate" id="lname" aria-describedby="nameHelp" placeholder="Enter Last Name" name="lname" required>
+                            <?php if (isset($_POST['register_button']) && isset($Response['lname']) && !empty($Response['lname'])): ?>
                                 <small class="text-danger"><?php echo $Response['lname']; ?></small>
                             <?php endif; ?>
                         </div>
@@ -204,7 +210,7 @@
                         <div class="form-group md-form mb-1">
                             <label data-error="wrong" data-success="right" for="tel"></label>
                             <input type="tel" class="form-control validate" id="tel" aria-describedby="emailHelp" placeholder="+1 (555) 666-7777" name="tel" required>
-                            <?php if ( isset($_POST['register_button']) && isset($Response['phone']) && !empty($Response['tel'])): ?>
+                            <?php if ( isset($_POST['register_button']) && isset($Response['tel']) && !empty($Response['tel'])): ?>
                                 <small class="text-danger"><?php echo $Response['tel']; ?></small>
                             <?php endif; ?>
                         </div>
@@ -212,7 +218,7 @@
                         <div class=" form-group md-form mb-1">
                             <label data-error="wrong" data-success="right" for="defaultForm-pass"></label>
                             <input type="password" class="form-control validate" id="defaultForm-pass" placeholder="Your Password" name="passwd" required>
-                            <?php if ( isset($_POST['register_button']) && isset($Response['password']) && !empty($Response['passwd'])): ?>
+                            <?php if ( isset($_POST['register_button']) && isset($Response['passwd']) && !empty($Response['passwd'])): ?>
                                 <small class="text-danger"><?php echo $Response['passwd']; ?></small>
                             <?php endif; ?>
                         </div>
@@ -314,29 +320,6 @@
                     </div>
                 </div>
             </nav>
-
-            <script>
-                function showHint(str) {
-                    if (str.length == 0)
-                    {
-                        document.getElementById("search").innerHTML = "";
-                        return;
-                    }
-                    else
-                    {
-                        var xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function()
-                        {
-                            if (this.readyState == 4 && this.status == 200)
-                            {
-                            document.getElementById("search").innerHTML = this.responseText;
-                            }
-                        };
-                        xmlhttp.open("GET", "C:/xampp/htdocs/off_campus_project/gethint.php?q=" + str, true);
-                        xmlhttp.send();
-                    }
-                }
-            </script>
 
             <div id="menu_button" onclick="openNav()">
                  <!-- <span class="menu_obj"> &#9776;</span> --></span>
@@ -538,7 +521,7 @@
                     <!-- row 1 -->
                     <div class="row">
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="apartmentss">
                                 <div class="apartments_pic apartments_pic1">
                                 </div>
@@ -557,7 +540,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="apartmentss">
                                 <div class="apartments_pic apartments_pic2">
 
@@ -577,7 +560,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <a href="Apartments.php" target="_blank" class="Apartment_links">
                                 <div class="apartmentss">
                                     <div class="apartments_pic apartments_pic3">
@@ -605,7 +588,7 @@
                     <!-- row 2 -->
                     <div class="row">
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="apartmentss">
                                 <div class="apartments_pic apartments_pic1">
                                 </div>
@@ -624,7 +607,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="apartmentss">
                                 <div class="apartments_pic apartments_pic2">
 
@@ -644,7 +627,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="apartmentss">
                                 <div class="apartments_pic apartments_pic3">
 
@@ -670,7 +653,7 @@
                     <!-- row 3 -->
                     <div class="row">
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="apartmentss">
                                 <div class="apartments_pic apartments_pic1">
                                 </div>
@@ -689,7 +672,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="apartmentss">
                                 <div class="apartments_pic apartments_pic2">
 
@@ -709,7 +692,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="apartmentss">
                                 <div class="apartments_pic apartments_pic3">
 

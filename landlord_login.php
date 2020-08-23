@@ -2,6 +2,7 @@
     // Include config file
     //require_once('C:\xampp\htdocs\off_campus_project\backend\Controller\Controller.php');
     //require_once('C:\xampp\htdocs\off_campus_project\backend/Framework/LandlordsFramework.php');
+    session_start();
  ?>
 
  <?php
@@ -23,7 +24,7 @@
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" media="screen and (min-width:900px)" href="css/landlord_login.css">
+        <link rel="stylesheet" href="css/landlord_login.css">
 
 
 
@@ -164,7 +165,7 @@
                                <div class="basic">
                                   <div class="basic_info">
                                       <p class="basic_desc">First Name</p>
-                                      <p class="basic_name"> <?php echo $_SESSION['fname']?></p>
+                                      <p class="basic_name"> <?php echo ($_SESSION['data']['Landlord_FName']);  ?></p>
                                   </div>
                                   <button type="button" class="btn basic_button" id="basic_fname_button"> <span class="btn_label">Edit</span> </button>
                                </div>
@@ -192,7 +193,7 @@
                                <div class="basic">
                                   <div class="basic_info">
                                       <p class="basic_desc">Last Name:</p>
-                                      <p class="basic_name"> John Doe</p>
+                                      <p class="basic_name"> <?php echo ($_SESSION['data']['Landlord_LName']);  ?></p>
                                   </div>
                                   <button type="button" class="btn basic_button"  id="basic_lname_button"> <span class="btn_label">Edit</span> </button>
                                </div>
@@ -219,7 +220,7 @@
                                  <div class="basic">
                                      <div class="basic_info">
                                          <p class="basic_desc">Email:</p>
-                                         <p class="basic_name"> Leedaniel@live.com</p>
+                                         <p class="basic_name"> <?php echo ($_SESSION['data']['Landlord_Email']);  ?></p>
                                      </div>
                                      <button type="button" class="btn basic_button" id="basic_email_button"> <span class="btn_label">Edit</span> </button>
                                  </div>
@@ -246,7 +247,7 @@
                                  <div class="basic">
                                      <div class="basic_info">
                                          <p class="basic_desc">Tel:</p>
-                                         <p class="basic_name"> 1 767 285-7239</p>
+                                         <p class="basic_name"> <?php echo ($_SESSION['data']['Landlord_Tel']);  ?></p>
                                      </div>
                                      <button type="button" class="btn basic_button" id="basic_tel_button"> <span class="btn_label">Edit</span> </button>
                                  </div>
@@ -273,7 +274,7 @@
                                  <div class="basic">
                                      <div class="basic_info">
                                          <p class="basic_desc">Password:</p>
-                                         <p class="basic_name"> *******</p>
+                                         <p class="basic_name"> <?php echo ($_SESSION['data']['Landlord_Passwd']);  ?></p>
                                      </div>
                                      <button type="button" class="btn basic_button" id="basic_psswd_button"> <span class="btn_label">Edit</span> </button>
                                  </div>
